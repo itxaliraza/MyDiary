@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true">
+
+        <CheckBox
+            android:button="@drawable/check_selector"
+            android:id="@+id/img"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:scaleType="centerCrop" />
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/img"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="ALi Raza.mp3"
+            android:textColor="#C6171717"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tv_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/img"
+            android:fontFamily="sans-serif"
+            android:text="01:76" />
+    </RelativeLayout>
+</RelativeLayout>

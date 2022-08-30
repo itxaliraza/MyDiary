@@ -9,7 +9,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.provider.Settings
 import android.util.Log
 import android.view.Menu
@@ -52,9 +51,6 @@ class DetailsFragment : Fragment(com.example.mydiary.R.layout.details_fragment) 
     var ishidden = false
     lateinit var selectedtype: String
 
-    /*
- var filePicker: FilePicker =(activity as MainActivity).filePicker
-*/
     var deletedpaths = ArrayList<String>()
     var newmedia = ArrayList<DiaryMedia>()
     lateinit var selectedmedia: DiaryMedia
@@ -191,9 +187,7 @@ class DetailsFragment : Fragment(com.example.mydiary.R.layout.details_fragment) 
             binding.ettitle.setText(diary.title)
             binding.etDes.setText(diary.des)
             medialist = ArrayList(diary.media)
-            Log.i("DetailsFragment", "medialist size ${medialist.size}")
-            Log.i("DetailsFragment", "medialist = ${medialist}")
-            mediaAdapter.submitlist(medialist)
+          mediaAdapter.submitlist(medialist)
             selectedmood = diary.mood
             selectedmood?.let { binding.mood.setImageResource(it) }
             nid = diary.id!!
@@ -221,7 +215,7 @@ class DetailsFragment : Fragment(com.example.mydiary.R.layout.details_fragment) 
                     newmedia.addAll(hm2)
                 }
                 mediaAdapter.submitlist(medialist)
-                Log.i("MYTAGhashmap", "hm=$hm2")
+
             }
         }
 
@@ -239,7 +233,6 @@ class DetailsFragment : Fragment(com.example.mydiary.R.layout.details_fragment) 
         ProgressDialogUtil.showProgressDialog()
         CoroutineScope(Dispatchers.IO).launch {
             deletedpaths.forEach {
-                Log.i("MYTAGDEL", "hm=$it")
 
                 StorageUtils.deletefile(requireContext(), it)
             }
@@ -252,18 +245,17 @@ class DetailsFragment : Fragment(com.example.mydiary.R.layout.details_fragment) 
 
                 val sdf = SimpleDateFormat("dd MMM yyyy hh:mm aa")
                 val currentDateAndTime: String = sdf.format(Date())
-                var note = Diary(
+                var diary = Diary(
                     title = binding.ettitle.text.toString(),
                     des = binding.etDes.text.toString(),
                     timeStamp = currentDateAndTime, media = medialist, mood = selectedmood
                 )
 
                 if (nid == -1) {
-                    detailsviewmodel.insertnote(note)
+                    detailsviewmodel.insertnote(diary)
                 } else {
-                    note.id = nid
-                    Log.i("MYTAG id=", note.id.toString())
-                    detailsviewmodel.updatenote(note)
+                    diary.id = nid
+                    detailsviewmodel.updatenote(diary)
                 }
                 ProgressDialogUtil.dismiss()
                 requireActivity().onBackPressed()
@@ -320,7 +312,6 @@ class DetailsFragment : Fragment(com.example.mydiary.R.layout.details_fragment) 
             resultLauncher.launch(i)
         } else {
             //permission denied
-            Log.i("MYTAG", "Oermision DEnied")
 
             if (!ActivityCompat.shouldShowRequestPermissionRationale(
                     requireActivity(),

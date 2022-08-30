@@ -42,7 +42,6 @@ class PickerActivity : AppCompatActivity() {
         if(item.itemId==R.id.done){
             val result = Intent()
           var  myselectedmedia=pickerViewModel.getSelectedMedia()
-            Log.i("myselectedmedia",myselectedmedia.toString())
             result.putParcelableArrayListExtra(Cons.SELECTED_MEDIA, myselectedmedia)
             setResult(RESULT_OK, result)
             finish()
@@ -60,11 +59,8 @@ class PickerActivity : AppCompatActivity() {
         binding = ActivityPickerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        pickerViewModel.myselectedmedia.observe(this,{
-            Log.i("myselectedmediiia",it.toString())
-        })
+
         mytype = intent.getStringExtra(Cons.TYPE).toString()
-        Log.i("MYTAGtype", mytype)
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.setTitle("")
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

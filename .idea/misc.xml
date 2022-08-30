@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Final/MyDiary/app/src/main/res/layout/activity_main.xml" value="0.10833333333333334" />
+        <entry key="..\:/Final/MyDiary/app/src/main/res/layout/activity_picker.xml" value="0.10833333333333334" />
+        <entry key="..\:/Final/MyDiary/app/src/main/res/layout/item_diary.xml" value="0.21" />
+        <entry key="..\:/Final/MyDiary/app/src/main/res/layout/item_mood.xml" value="0.10833333333333334" />
+        <entry key="..\:/Final/MyDiary/app/src/main/res/layout/media_item.xml" value="0.10833333333333334" />
+        <entry key="..\:/Final/MyDiary/app/src/main/res/layout/mood_layout.xml" value="0.10833333333333334" />
+        <entry key="..\:/Final/MyDiary/app/src/main/res/layout/progress_dialog.xml" value="0.10833333333333334" />
         <entry key="..\:/Users/adon2/AndroidStudioProjects/MyDiary/app/src/main/res/drawable-v24/bg_progress.xml" value="0.1195" />
         <entry key="..\:/Users/adon2/AndroidStudioProjects/MyDiary/app/src/main/res/drawable-v24/ic_diary.xml" value="0.1195" />
         <entry key="..\:/Users/adon2/AndroidStudioProjects/MyDiary/app/src/main/res/drawable-v24/ic_icon.xml" value="0.1195" />

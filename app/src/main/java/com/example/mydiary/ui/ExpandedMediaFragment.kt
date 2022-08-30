@@ -48,29 +48,23 @@ class ExpandedMediaFragment : Fragment(com.example.mydiary.R.layout.fragment_exp
             }
             val videoView: VideoView = binding.media
             binding.media.setZOrderOnTop(true)
-// Set video link (mp4 format )
-            // Set video link (mp4 format )
+
             val video: Uri = Uri.parse(f.path)
             videoView.setVideoURI(video)
 
-            /*   mediaController.setAnchorView(videoView)
-               videoView.setMediaController(mediaController)*/
+
             var mediaController = MediaController(context)
-            var isbackpressed = false
             videoView.setOnPreparedListener { mp ->
                 mediaController =
                     object : MediaController(context) {
                         override fun hide() {
-                           // if (isbackpressed)
                                 super.hide()
                         }
 
                         override fun dispatchKeyEvent(event: KeyEvent): Boolean {
                             if (event.keyCode == KeyEvent.KEYCODE_BACK) {
-                                isbackpressed = true
                                 mediaController.hide()
                                 activity?.onBackPressed()
-                                //    mp.reset()
                                 return true //If press Back button, finish here
                             }
                             //If not Back button, other button (volume) work as usual.

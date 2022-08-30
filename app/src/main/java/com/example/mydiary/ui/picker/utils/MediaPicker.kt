@@ -168,7 +168,6 @@ class MediaPicker(private val context: Context,var mediaType: String) {
                 val mediaFile = imageFileList[i]
                 val folderId = mediaFile.folderId!!
 
-                //先查看map 中是否存在当前的文件夹 ，不存在则创建
                 var imageFolder = mediaFolderMap[folderId]
                 if (imageFolder == null) {
                     imageFolder = MediaFolder()
@@ -189,7 +188,6 @@ class MediaPicker(private val context: Context,var mediaType: String) {
                 val mediaFile = videoFileList[i]
                 val folderId = mediaFile.folderId!!
 
-                //先查看map 中是否存在当前的文件夹 ，不存在则创建
                 var imageFolder = mediaFolderMap[folderId]
                 if (imageFolder == null) {
                     imageFolder = MediaFolder()
@@ -198,12 +196,10 @@ class MediaPicker(private val context: Context,var mediaType: String) {
                     imageFolder.folderCover = mediaFile.path
                     imageFolder.mediaFiles = ArrayList<MediaFile>()
                 }
-                //取出MediaFolder的图片列表，把当前的图片资源添加进去
                 val imageList = imageFolder.mediaFiles
                 imageList.add(mediaFile)
 
 
-                //重新再给图片资源列表复制
                 imageFolder.mediaFiles = imageList
                 mediaFolderMap[folderId] = imageFolder
             }

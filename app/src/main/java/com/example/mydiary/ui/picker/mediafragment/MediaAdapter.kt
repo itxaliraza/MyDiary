@@ -62,9 +62,7 @@ class MediaAdapter(
 
 
         init {
-/*
-            if (clickListener != null) {
-*/
+
             itemView.setOnClickListener {
                 var dm =
                     DiaryMedia(differ.currentList.get(adapterPosition).path, type)

@@ -27,7 +27,6 @@ class HomeViewModel @Inject constructor(var repository: DiaryRepository) : ViewM
 
     val results: Flow<List<Diary>> =
         _currentQuery.flatMapLatest { query ->
-            Log.i("MYTAG", "query=$query")
             repository.searchdiary(query).stateIn(viewModelScope)
 
         }

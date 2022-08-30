@@ -83,7 +83,6 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
             homeViewModel.results.collectLatest {
                 binding.pb.makeGone()
                 diaryAdapter.submitlist(it)
-                Log.i("MYTAG", "date=$it")
             }
         }
 

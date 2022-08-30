@@ -56,7 +56,11 @@ class DiaryAdapter : RecyclerView.Adapter<DiaryAdapter.MyviewHolder>() {
             binding.time2.setText(time.substring(12..19))
             if (diary.mood != null) {
                 binding.mood.setImageResource(diary.mood)
+                binding.mood.makeVisible()
+
             }
+            else
+                binding.mood.makeInvisible()
             when (diary.media.size) {
                 0 -> {
                     binding.il.makeGone()

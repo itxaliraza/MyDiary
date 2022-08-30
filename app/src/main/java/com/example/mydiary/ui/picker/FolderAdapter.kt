@@ -60,14 +60,10 @@ class FolderAdapter(var type: String) : RecyclerView.Adapter<FolderAdapter.Myvie
 
 
         init {
-/*
-            if (clickListener != null) {
-*/
+
             itemView.setOnClickListener {
                 onfolderclick?.invoke(differ.currentList[adapterPosition])
-/*
-            }
-*/
+
 
             }
         }

@@ -13,24 +13,7 @@ class PickerViewModel  : ViewModel() {
     }
 
     fun getSelectedMedia(): ArrayList<DiaryMedia> {
-        Log.i("MYTAGgettinglist", "adding $selectedmedia"  )
-
         return selectedmedia}
 
-    fun itemclicked(diaryMedia: DiaryMedia) {
 
-        if (selectedmedia.contains(diaryMedia)) {
-            selectedmedia.remove(diaryMedia)
-            Log.i("MYTAGtype", "removing $diaryMedia"  )
-
-        } else {
-            selectedmedia.add(diaryMedia)
-            Log.i("MYTAGtype", "adding $diaryMedia"  )
-            Log.i("MYTAGtypelist", "adding $selectedmedia"  )
-        }
-        Log.i("MYTAGtypelist", "addinggg $selectedmedia"  )
-
-        myselectedmedia.postValue(selectedmedia)
-
-    }
 }

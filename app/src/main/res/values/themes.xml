@@ -18,7 +18,6 @@
     <style name="Theme.MySplash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/white</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_diary</item>
-
         <item name="postSplashScreenTheme">@style/Theme.MyDiary</item>
     </style>
 
